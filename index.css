@@ -1,0 +1,348 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =============== 
+utiliy clases
+====================== */
+ul {
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+
+}
+
+section {
+    background-image: url("https://source.unsplash.com/-RBuQ2PK_L8");
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    background-repeat: no-repeat;
+}
+/*========================
+ variables 
+========================== */
+:root {
+    --text-color-white: #ffffff;
+    --text-color-black: #000000;
+
+
+    /* for border  */
+    --border: #da4fbe;
+
+
+    /* for background gradient  */
+    --gradient-bg: linear-gradient(45deg, #0a1dc9e6, #00ff37e6);
+
+
+    /* for innner images background  */
+    --inner-images: rgba(0, 0, 0, 0.377);
+
+
+    --html-bg: #00ffe4e6;
+    --css-bg: #00b9ffb0;
+    --js-bg: #7fb1ff;
+}
+/*===============
+ for header
+ ================  */
+
+.navbar-toggler:focus{
+    box-shadow: none !important;
+}
+.navbar-toggler > .fa-solid.fa-xmark {
+    font-size: 1.6rem;
+}
+
+/*===================
+ for main hero section 
+==================== */
+
+.text_anim_container {
+    display: flex;
+    align-items: center;
+    --font-size: 2em;
+    --line-height: 40px;
+
+    /* to change animation duration, change this. */
+    --line-anim-dur: 2s;
+
+    /* this is changed dynamically by javascript depending on the number of "dynamic text number" */
+    --total-dynamic-text: 4;
+    --total-anim-dur: 19s;
+}
+
+.text_anim_container .static_text {
+    font-size: var(--font-size);
+}
+.navbar-toggler > .cross{
+   display:none;
+}
+
+.text_anim_container .dynamic_text {
+    font-size: var(--font-size);
+    height: var(--line-height);
+    line-height: var(--line-height);
+    overflow: hidden;
+    padding-left: 0.4em;
+}
+
+.dynamic_text li {
+    list-style: none;
+    position: relative;
+    top: 0;
+    animation: slide var(--total-anim-dur) steps(var(--total-dynamic-text)) infinite;
+}
+
+.dynamic_text li span {
+    position: relative;
+    display: inline-block;
+
+}
+
+.dynamic_text li span::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: #EBCFCE;
+    border-left: 2px solid var(--text-color-black);
+    animation: typing var(--line-anim-dur) steps(10) infinite;
+
+}
+
+@keyframes slide {
+    100% {
+        top: calc(var(--line-height)* var(--total-dynamic-text)*-1);
+    }
+}
+
+@keyframes typing {
+
+    40%,
+    60% {
+        left: calc(100% + 30px);
+    }
+
+    100% {
+        left: 0;
+    }
+}
+
+.carousel-item>img {
+    height: 28rem;
+    width: 21rem !important;
+    border-radius: .4em;
+}
+
+/* for hover button 
+ */
+.button-2 {
+    color: #fff;
+    border: 1px solid #c266d3;
+    background-image: -webkit-linear-gradient(30deg, #c266d3 50%, transparent 50%) !important;
+    background-image: linear-gradient(30deg, #c266d3 50%, transparent 50%) !important;
+    background-size: 500px;
+    background-repeat: no-repeat;
+    background-position: 0%;
+    -webkit-transition: all 300ms ease-in-out;
+    transition: all 300ms ease-in-out;
+    padding: 0.6em 1.2em;
+    text-decoration: none;
+    /* border: none; */
+    border-radius: 0.3em;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #191818;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    z-index: 0;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.button-2:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: button 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+    opacity: 1;
+}
+
+.button-2:active {
+    color: #000
+}
+
+.button-2:active:after {
+    background: transparent;
+}
+
+.button-2:hover:before {
+    opacity: 0;
+}
+
+.button-2:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(30deg, #c266d3 50%, transparent 50%) !important;
+    background-size: 500px;
+    background-repeat: no-repeat;
+    background-position: 0%;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+@keyframes button {
+    0% {
+        background-position: 0 0;
+    }
+
+    50% {
+        background-position: 400% 0;
+    }
+
+    100% {
+        background-position: 0 0;
+    }
+}
+
+.button-2:hover {
+    background-position: 100%;
+    color: var(--text-color-white);
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    height: 100%;
+}
+
+article {
+    height: 100%;
+    margin-top: 3em;
+}
+
+.about-des {
+    padding-right: 7em;
+}
+
+.cv-button {
+    display: flex;
+}
+
+.nav-link {
+    font-size: 1.1em !important;
+    font-weight: 600 !important;
+    color: black !important;
+}
+
+/* for contact page  */
+.glow-on-hover {
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #191818;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    z-index: 0;
+    padding: 0.3em 1.7em;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.glow-on-hover:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+    opacity: 1;
+}
+
+.glow-on-hover:active {
+    color: #000
+}
+
+.glow-on-hover:active:after {
+    background: transparent;
+}
+
+.glow-on-hover:hover:before {
+    opacity: 0;
+}
+
+.glow-on-hover:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(30deg, #c266d3 50%, transparent 50%) !important;
+    background-size: 500px;
+    background-repeat: no-repeat;
+    background-position: 0%;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+@keyframes glowing {
+    0% {
+        background-position: 0 0;
+    }
+
+    50% {
+        background-position: 400% 0;
+    }
+
+    100% {
+        background-position: 0 0;
+    }
+}
+
+.for-right-slider>img {
+    border-radius: 2em 0;
+    height: 26rem;
+    width: auto;
+}
+
+.for-right-slider {
+    display: flex;
+    justify-content: center;
+}
+
+
